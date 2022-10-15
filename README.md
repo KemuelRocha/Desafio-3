@@ -16,4 +16,9 @@
 4 - Visualizar o projeto na porta padrão que o terminal vai indicar
 
 
+
+LINK PARA O FIGMA: https://www.figma.com/file/RtN4cQQadwgqd439Ka5Y6Y/Desafio-SantoDigital?node-id=0%3A1
+
+
 --------- Kemuel Rocha
+
