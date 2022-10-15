@@ -1,0 +1,10 @@
+
+
+.profile-content{
+    background-color: #2930427d;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    overflow: hidden;
+}
