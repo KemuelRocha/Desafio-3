@@ -6,14 +6,12 @@ import "./style.css";
 
 function Profile() {
   const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getUserData()
       .then(function (response) {
-        setIsLoading(false);
-
-        console.log(response.data);
+        setIsLoading(false); 
 
         setUser(response.data.results[0]);
       })
@@ -25,44 +23,46 @@ function Profile() {
 
   return (
     <>
-     <div >
-        <div id="tela-usuario" className="container-fluid vh-100 profile-content">
+      {!isLoading ? (
+        <div>
+          <div>
+            <div
+              id="tela-usuario"
+              className="container-fluid vh-100 profile-content"
+            >
+              <div className="container d-flex flex-column  align-items-center">
+                <div className="profile-image   ">
+                  <img src={user.picture.large} width="180" alt="" />
+                </div>
 
-<div className="container d-flex flex-column  align-items-center">
+                <div className="mt-2 user-name">
+                  <span className="text ">
+                    {user.name.first + " " + user.name.last}, {user.dob.age}
+                  </span>
+                </div>
 
-    <div>
-        <img src="{}" width="160"   alt="" />
-    </div>
+                <div >
+                  <span className="text"> {user.location.city}, {user.location.country}</span>
+                </div>
 
-    <div className="mt-2 mb-1">
-        <span className="text">UserName, IDADE</span>
-    </div>
-    
-    <div className="mt-2 mb-1">
-        <span className="text"> PETROLINA, BRASIL</span>
-    </div>
-
-    <div className="d-flex flex-row">
-       <div className="me-4">
-            <i className="fa fa-phone icon"></i>
-            <span className="numero-contato">Numero-con</span>
-       </div>
-
-       <div>
-            <i className="fa fa-envelope icon"></i>
-            <span className="numero-contato">USER EMail</span>
-       </div>
-
-    </div>
-
-</div>
-</div>
-</div>
-     
-
-      {/* {isLoading && (
-       
-      )} */}
+                <div >
+                  <span className="numero-contato">{user.phone}</span>
+                </div>
+                
+                <div >
+                  <span className="email">{user.email}</span>
+                </div>
+                
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="spinner-border" role="status"></div>
+        </div>
+      )}
     </>
   );
 }

@@ -5,6 +5,19 @@
     color: white;
     display: flex;
     flex-flow: column;
-    height: 100%;
     overflow: hidden;
+    font-size: 19px;
+}
+
+.profile-content .user-name{
+    font-size: 26px;
+}
+
+.profile-image{
+    padding-top: 50px;
+    
+}
+
+.profile-image img {
+    border-radius: 50%;
 }

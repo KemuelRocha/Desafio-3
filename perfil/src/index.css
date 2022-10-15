@@ -19,10 +19,15 @@ code {
   background-color: #293042;
   transition: background ease-out 0.2s;
   height: 70px;
+  
 }
 
 .main-navbar-items{
   position: absolute;
   right: 0;
+}
+
+.nav-links {
+  margin-right: 25px;
 }
 

@@ -21,23 +21,28 @@ function NavBar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse main-navbar-items" id="navbarNav">
-            <ul className="navbar-nav">
-              
-              
+          <div
+            className="collapse navbar-collapse main-navbar-items"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav nav-links">
               <li className="nav-item">
-            
-              {/* <Link to="/">Tela de Perfil</Link> */}
-
-                <a className="nav-link active text-white" aria-current="page" href="#">
+                <a
+                  className="nav-link active text-white"
+                  aria-current="page"
+                  href="/"
+                >
                   Tela Perfil
                 </a>
               </li>
 
-              {/* <Link to="/">Idade</Link> */}
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  Retorno da Idade
+                <a
+                  className="nav-link active text-white"
+                  aria-current="page"
+                  href="/finduser"
+                >
+                  Idade
                 </a>
               </li>
             </ul>

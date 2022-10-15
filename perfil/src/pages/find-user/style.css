@@ -1,1 +1,10 @@
 
+
+.find-user-content{
+    background-color: #2930427d;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+    font-size: 19px;
+}

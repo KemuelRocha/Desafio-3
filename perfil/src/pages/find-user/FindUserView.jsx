@@ -7,35 +7,34 @@ export default function FindUserView() {
   const [userName, setUserName] = useState("");
   const [idade, setIdade] = useState("");
   const [isLoading, setIsLoading] = useState(false);
- 
+
   const handleChange = (event) => {
     setUserName(event.target.value);
-    console.log(event.target.value)
+    console.log(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    // alert("Um nome foi enviado: " + userName);
-    event.preventDefault();
+  const handleSubmit = (event) => { 
+    event.preventDefault()
+    setIsLoading(true);
 
     findUser(userName)
-    .then((r) => {
-      setIdade(r.data.age)
-      setIsLoading(true)
-    })
-    .catch((e) => {
-      setIsLoading(true)
-      console.log(e)
-    })
-    
+      .then((r) => {
+        setIdade(r.data.age);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setIsLoading(false);
+        console.log(e);
+      });
   };
 
   return (
+    <div className="d-flex flex-column  align-items-center pt-5 vh-100 find-user-content ">
+      
     <div>
-      <h1>Nome</h1>
-
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <label>
-          Nome:
+          Nome: 
           <input
             type="text"
             value={userName}
@@ -45,19 +44,20 @@ export default function FindUserView() {
         <input type="submit" value="Enviar" />
       </form>
 
-      <div>
-        <h1>Idade</h1>
-        {
-          (!isLoading && idade) ? (
-            <h3>{idade}</h3> :
-            <div class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-
-
-          )
-        }
+      <div className="mt-2">
+      
+        {!isLoading ? (
+          <h5>Idade: {idade}</h5>  
+        ) : (
+          <div>
+            <div className="spinner-border" role="status">
+            </div>
+          </div>
+        )}
       </div>
+    </div>
+
+    
     </div>
   );
 }
